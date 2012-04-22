@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"
+xmlns:atom="http://www.w3.org/2005/Atom"
+xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+<open>1</open>
+<visibility>1</visibility>
+<description><![CDATA[]]></description>
+<name><![CDATA[4/21/2012 6:31 PM Pass 2]]></name>
+<atom:author><atom:name><![CDATA[Created by My Tracks on Android.]]></atom:name></atom:author>
+<Style id="track">
+<LineStyle><color>7f0000ff</color><width>4</width></LineStyle>
+<IconStyle>
+<scale>1.3</scale>
+<Icon><href>http://earth.google.com/images/kml-icons/track-directional/track-0.png</href></Icon>
+</IconStyle>
+</Style>
+<Style id="start"><IconStyle>
+<scale>1.3</scale>
+<Icon><href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href></Icon>
+<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+</IconStyle></Style>
+<Style id="end"><IconStyle>
+<scale>1.3</scale>
+<Icon><href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href></Icon>
+<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+</IconStyle></Style>
+<Style id="statistics"><IconStyle>
+<scale>1.3</scale>
+<Icon><href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href></Icon>
+<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+</IconStyle></Style>
+<Style id="waypoint"><IconStyle>
+<scale>1.3</scale>
+<Icon><href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href></Icon>
+<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+</IconStyle></Style>
+<Schema id="schema">
+<gx:SimpleArrayField name="power" type="int">
+<displayName><![CDATA[Power (W)]]></displayName>
+</gx:SimpleArrayField>
+<gx:SimpleArrayField name="cadence" type="int">
+<displayName><![CDATA[Cadence (rpm)]]></displayName>
+</gx:SimpleArrayField>
+<gx:SimpleArrayField name="heart_rate" type="int">
+<displayName><![CDATA[Heart rate (bpm)]]></displayName>
+</gx:SimpleArrayField>
+<gx:SimpleArrayField name="battery_level" type="int">
+<displayName><![CDATA[Battery level (%)]]></displayName>
+</gx:SimpleArrayField>
+</Schema>
+<Placemark>
+<description><![CDATA[]]></description>
+<name><![CDATA[4/21/2012 6:31 PM Pass 2 (Start)]]></name>
+<styleUrl>#start</styleUrl>
+<Point>
+<coordinates>-122.351016,47.620178,30.9000244140625</coordinates>
+</Point>
+</Placemark>
+<Placemark id="tour">
+<description><![CDATA[]]></description>
+<name><![CDATA[4/21/2012 6:31 PM Pass 2]]></name>
+<styleUrl>#track</styleUrl>
+<gx:MultiTrack>
+<altitudeMode>absolute</altitudeMode>
+<gx:interpolate>1</gx:interpolate>
+<gx:Track>
+<when>2012-04-22T01:31:19.000Z</when>
+<gx:coord>-122.351016 47.620178 30.9000244140625</gx:coord>
+<when>2012-04-22T01:31:19.000Z</when>
+<gx:coord>-122.351016 47.620178 30.9000244140625</gx:coord>
+<when>2012-04-22T01:31:24.000Z</when>
+<gx:coord>-122.351016 47.620178 30.9000244140625</gx:coord>
+<when>2012-04-22T01:31:25.000Z</when>
+<gx:coord>-122.350816 47.620108 32.5999755859375</gx:coord>
+<when>2012-04-22T01:31:29.000Z</when>
+<gx:coord>-122.350811 47.620159 32.20001220703125</gx:coord>
+<when>2012-04-22T01:31:33.000Z</when>
+<gx:coord>-122.350819 47.620218 31.79998779296875</gx:coord>
+<when>2012-04-22T01:31:37.000Z</when>
+<gx:coord>-122.350835 47.620275 30.79998779296875</gx:coord>
+<when>2012-04-22T01:31:41.000Z</when>
+<gx:coord>-122.350861 47.620323 29.9000244140625</gx:coord>
+<when>2012-04-22T01:31:45.000Z</when>
+<gx:coord>-122.350879 47.620373 29.4000244140625</gx:coord>
+<when>2012-04-22T01:31:49.000Z</when>
+<gx:coord>-122.350884 47.62043 29.5999755859375</gx:coord>
+<when>2012-04-22T01:31:53.000Z</when>
+<gx:coord>-122.350885 47.620486 30.0</gx:coord>
+<when>2012-04-22T01:31:56.000Z</when>
+<gx:coord>-122.350874 47.620538 33.0</gx:coord>
+<when>2012-04-22T01:32:00.000Z</when>
+<gx:coord>-122.350863 47.620585 33.0</gx:coord>
+<when>2012-04-22T01:32:04.000Z</when>
+<gx:coord>-122.350843 47.62063 33.0</gx:coord>
+<when>2012-04-22T01:32:08.000Z</when>
+<gx:coord>-122.350826 47.620687 33.29998779296875</gx:coord>
+<when>2012-04-22T01:32:12.000Z</when>
+<gx:coord>-122.350824 47.620736 33.20001220703125</gx:coord>
+<when>2012-04-22T01:32:18.000Z</when>
+<gx:coord>-122.350867 47.620778 31.9000244140625</gx:coord>
+<when>2012-04-22T01:32:22.000Z</when>
+<gx:coord>-122.35095 47.620792 31.29998779296875</gx:coord>
+<when>2012-04-22T01:32:26.000Z</when>
+<gx:coord>-122.351018 47.620798 30.79998779296875</gx:coord>
+<when>2012-04-22T01:32:30.000Z</when>
+<gx:coord>-122.351107 47.620795 29.4000244140625</gx:coord>
+<when>2012-04-22T01:32:33.000Z</when>
+<gx:coord>-122.351166 47.620771 29.4000244140625</gx:coord>
+<when>2012-04-22T01:32:37.000Z</when>
+<gx:coord>-122.351238 47.620745 29.0999755859375</gx:coord>
+<when>2012-04-22T01:32:41.000Z</when>
+<gx:coord>-122.351307 47.620723 29.0</gx:coord>
+<when>2012-04-22T01:32:45.000Z</when>
+<gx:coord>-122.35138 47.620696 29.29998779296875</gx:coord>
+<when>2012-04-22T01:32:49.000Z</when>
+<gx:coord>-122.351429 47.620653 29.4000244140625</gx:coord>
+<when>2012-04-22T01:32:53.000Z</when>
+<gx:coord>-122.351454 47.620601 29.29998779296875</gx:coord>
+<when>2012-04-22T01:32:57.000Z</when>
+<gx:coord>-122.351467 47.620544 29.5999755859375</gx:coord>
+<when>2012-04-22T01:33:01.000Z</when>
+<gx:coord>-122.351486 47.62049 29.4000244140625</gx:coord>
+<when>2012-04-22T01:33:04.000Z</when>
+<gx:coord>-122.351487 47.620442 29.4000244140625</gx:coord>
+<when>2012-04-22T01:33:08.000Z</when>
+<gx:coord>-122.351474 47.620383 29.20001220703125</gx:coord>
+<when>2012-04-22T01:33:12.000Z</when>
+<gx:coord>-122.35142 47.620336 29.20001220703125</gx:coord>
+<when>2012-04-22T01:33:15.000Z</when>
+<gx:coord>-122.351363 47.620309 28.70001220703125</gx:coord>
+<when>2012-04-22T01:33:19.000Z</when>
+<gx:coord>-122.351299 47.620274 28.5999755859375</gx:coord>
+<when>2012-04-22T01:33:23.000Z</when>
+<gx:coord>-122.351244 47.620238 29.20001220703125</gx:coord>
+<when>2012-04-22T01:33:27.000Z</when>
+<gx:coord>-122.351189 47.620206 29.20001220703125</gx:coord>
+<when>2012-04-22T01:33:33.000Z</when>
+<gx:coord>-122.351139 47.620166 28.5999755859375</gx:coord>
+<when>2012-04-22T01:33:38.000Z</when>
+<gx:coord>-122.351059 47.620158 28.79998779296875</gx:coord>
+<when>2012-04-22T01:33:42.000Z</when>
+<gx:coord>-122.350983 47.620147 28.79998779296875</gx:coord>
+<ExtendedData>
+<SchemaData schemaUrl="#schema">
+</SchemaData>
+</ExtendedData>
+</gx:Track>
+</gx:MultiTrack>
+</Placemark>
+<Placemark>
+<description><![CDATA[Created by <a href='http://www.google.com/mobile/mytracks'>My Tracks</a> on Android.<p>Total distance: 0.22 km (0.1 mi)<br>Total time: 02:29<br>Moving time: 02:18<br>Average speed: 5.31 km/h (3.3 mi/h)<br>Average moving speed: 5.75 km/h (3.6 mi/h)<br>Max speed: 7.69 km/h (4.8 mi/h)<br>Average pace: 11.29 min/km (18.2 min/mi)<br>Average moving pace: 10.44 min/km (16.8 min/mi)<br>Min pace: 7.80 min/km (12.6 min/mi)<br>Max elevation: 33 m (108 ft)<br>Min elevation: 29 m (95 ft)<br>Elevation gain: 3 m (9 ft)<br>Max grade: 0 %<br>Min grade: 0 %<br>Recorded: 4/21/2012 6:31 PM<br>Activity type: -<br>]]></description>
+<name><![CDATA[4/21/2012 6:31 PM Pass 2 (End)]]></name>
+<styleUrl>#end</styleUrl>
+<Point>
+<coordinates>-122.350983,47.620147,28.79998779296875</coordinates>
+</Point>
+</Placemark>
+</Document>
+</kml>
