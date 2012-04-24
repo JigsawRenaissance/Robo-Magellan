@@ -11,7 +11,7 @@ from Google Play):
 
     http://www.mithril.com.au/android/sl4a_r5x.apk
 
-More information on SL4a here:
+More information on SL4 here:
 
     http://code.google.com/p/android-scripting/
 
@@ -46,14 +46,13 @@ Where:
     speed = speed in meters/second (float)
     accuracy = GPS accuracy in meters (int)
 
-Note that the phone's GPS sensor may not yield new data even if sampled often.
-For example, you can try to sample GPS every second, but you may only get new
-data every ~15 seconds.
 """
 
 import android, time, sqlite3, os
 
-SAMPLE_RATE = 500 # in msec
+GPS_MIN_DISTANCE = 1000  # minimum time between updates in milliseconds
+GPS_MIN_UPDATE_DISTANCE = 1 # minimum distance between updates in meters
+BLACKBOX_DIR = '/sdcard/blackbox/'
 SLEEP = 1
 
 def write_csv_file(fp, gps):
@@ -73,8 +72,7 @@ def write_db(conn, cur, gps):
 
 
 droid = android.Android()
-droid.startLocating()
-#droid.startLocating(SAMPLE_RATE)
+droid.startLocating(GPS_MIN_DISTANCE, GPS_MIN_UPDATE_DISTANCE)
 
 title = 'BlackBox'                                                
 message = 'Please make sure you have GPS enabled.'
@@ -84,12 +82,11 @@ droid.dialogShow()
 response = droid.dialogGetResponse().result
 
 track_name = droid.dialogGetInput('Unique Track Name').result
-BLACKBOX_DIR = '/sdcard/blackbox/'
-DB_FILE_NAME  = BLACKBOX_DIR + track_name + '.db'
-CSV_FILE_NAME = BLACKBOX_DIR + track_name + '.csv'
-KML_FILE_NAME = BLACKBOX_DIR + track_name + '.kml'
+db_file_name  = BLACKBOX_DIR + track_name + '.db'
+csv_file_name = BLACKBOX_DIR + track_name + '.csv'
+kml_file_name = BLACKBOX_DIR + track_name + '.kml'
 
-DURATION = int(droid.dialogGetInput('Recording Time in Seconds').result)
+duration = int(droid.dialogGetInput('Recording Time in Seconds').result)
 
 # Create a blackbox directory if it does not yet exist
 try:
@@ -99,17 +96,17 @@ except OSError:
 
 # Delete old track data with same track_name
 try:
-    os.unlink(DB_FILE_NAME)
-    os.unlink(CSV_FILE_NAME)
-    os.unlink(KML_FILE_NAME)
+    os.unlink(db_file_name)
+    os.unlink(csv_file_name)
+    os.unlink(kml_file_name)
 except OSError:
     pass
     
-#kml_file = open(KML_FILE_NAME, 'w')
-csv_file = open(CSV_FILE_NAME, 'w')
+#kml_file = open(kml_file_name, 'w')
+csv_file = open(csv_file_name, 'w')
 csv_file.write('# time, latitude, longitude, altitude, speed, accuracy\n')
 
-conn = sqlite3.connect(DB_FILE_NAME)
+conn = sqlite3.connect(db_file_name)
 cur = conn.cursor()
 cur.execute("""
     CREATE TABLE log(
@@ -151,7 +148,7 @@ while True:
     write_csv_file(csv_file, gps)
     message = 'LAT: %(latitude)s\nLONG: %(longitude)s\nACC: %(accuracy)s' % gps
     droid.makeToast(message)
-    if time.time() - start_time > DURATION:
+    if time.time() - start_time > duration:
         break
 
 csv_file.close()
