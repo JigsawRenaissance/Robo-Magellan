@@ -27,8 +27,11 @@ like 60 seconds.  The recording will stop automatically after the selected
 duration.
 
 Upon completion, data will be stored in the directory /sdcard/blackbox/.
-There should be a <track_name>.db SQLite3 file as well as a <track_name>.csv
-CSV file.
+There should be 3 files:
+
+    <track_name>.db  -- SQLite3 database file
+    <track_name>.csv -- CSV file
+    <track_name>.kml -- KML file
 
 The CSV file content looks like this:
 
@@ -50,16 +53,33 @@ Where:
 
 import android, time, sqlite3, os
 
-GPS_MIN_DISTANCE = 1000  # minimum time between updates in milliseconds
-GPS_MIN_UPDATE_DISTANCE = 1 # minimum distance between updates in meters
+GPS_MIN_DISTANCE = 1000        # minimum time between updates in milliseconds
+GPS_MIN_UPDATE_DISTANCE = 1    # minimum distance between updates in meters
 BLACKBOX_DIR = '/sdcard/blackbox/'
 SLEEP = 1
+
+KML_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"
+xmlns:atom="http://www.w3.org/2005/Atom"
+xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+<Placemark>
+<gx:Track>
+"""
+
+KML_FOOTER = """</gx:Track>
+</Placemark>
+</Document>
+</kml>
+"""
 
 def write_csv_file(fp, gps):
     fp.write('%(time)s,%(latitude)s,%(longitude)s,%(altitude)s,%(speed)s,%(accuracy)s\n' % gps)
     
 def write_kml_file(fp, gps):
-    pass
+    t = gps['time']
+    kml_file.write('<when>%s</when>' % time.ctime(t))
+    kml_file.write('<gx:coord>%s %s %s</gx:coord>\n' % (gps['longitude'], gps['latitude'], gps['altitude']))
 
 def write_db(conn, cur, gps):
     cur.execute("""
@@ -102,7 +122,9 @@ try:
 except OSError:
     pass
     
-#kml_file = open(kml_file_name, 'w')
+kml_file = open(kml_file_name, 'w')
+kml_file.write(KML_HEADER)
+
 csv_file = open(csv_file_name, 'w')
 csv_file.write('# time, latitude, longitude, altitude, speed, accuracy\n')
 
@@ -146,12 +168,17 @@ while True:
     
     write_db(conn, cur, gps)
     write_csv_file(csv_file, gps)
+    write_kml_file(kml_file, gps)
     message = 'LAT: %(latitude)s\nLONG: %(longitude)s\nACC: %(accuracy)s' % gps
     droid.makeToast(message)
     if time.time() - start_time > duration:
         break
 
+kml_file.write(KML_FOOTER)
+kml_file.close()
+
 csv_file.close()
+
 droid.stopLocating()
 
 title = 'Done!'                                                
