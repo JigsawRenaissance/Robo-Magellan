@@ -78,7 +78,8 @@ def write_csv_file(fp, gps):
     
 def write_kml_file(fp, gps):
     t = gps['time']
-    kml_file.write('<when>%s</when>' % time.ctime(t))
+    time_string = time.strftime("%Y-%m-%dT%H:%M:%S.0000Z", time.gmtime(t))
+    kml_file.write('<when>%s</when>' % time_string)
     kml_file.write('<gx:coord>%s %s %s</gx:coord>\n' % (gps['longitude'], gps['latitude'], gps['altitude']))
 
 def write_db(conn, cur, gps):
