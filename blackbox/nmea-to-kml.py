@@ -40,7 +40,6 @@ import re
 GPGGA = re.compile("""
     # Sample line:
     # $GPGGA,035306.200,4735.7144,N,12219.6396,W,1,8,1.42,-2.1,M,-17.3,M,,*46
-    # $GPGGA,035135.600,4735.7144,N,12219.6434,W,1,9,1.35,0.0,M,-17.3,M,,*60
 
 
     ^\$GPGGA,
@@ -113,7 +112,7 @@ def main():
         except AttributeError:
             if debug:
                 print 'Bad line: ', line
-                continue
+            continue
 
         if debug:
             print '%(hhmmss)s, %(longitude)s %(W_E)s, %(latitude)s %(N_S)s, %(altitude)s' % result
