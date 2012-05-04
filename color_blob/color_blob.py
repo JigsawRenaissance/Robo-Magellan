@@ -34,7 +34,7 @@ To test if the installation worked:
     >>> import cv
     >>>                 # <--- No error here indicates success
 
-If the webman does not work, make sure to use a V4L (Video4Linux) compatible webcam.
+If the webcam does not work, make sure to use a V4L (Video4Linux) compatible webcam.
 """
 
 import cv

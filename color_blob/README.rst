@@ -7,9 +7,6 @@ bounding boxes of any color blobs it detects.  Accuracy of the color blob detect
 is very sensitive to the target color chosen.
 
 
-.. image:: images/color-blob-test.png
-
-
 **Usage**
 
 To interactively test on a single image::
@@ -41,5 +38,5 @@ To test if the installation worked::
     >>> import cv
     >>>                 # <--- No error here indicates success
 
-If the webman does not work, make sure to use a V4L (Video4Linux) compatible webcam.
+If the webcam does not work, make sure to use a V4L (Video4Linux) compatible webcam.
 
