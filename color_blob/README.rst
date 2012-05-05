@@ -26,6 +26,9 @@ To test on a live webcam video feed::
     $ ./color_blob.py -v
     ...
 
+
+** Dependencies **
+
 This was tested under Ubuntu and the argparse module used in this script assumes
 Python 2.7.  This script uses OpenCV and its Python bindings.  To install the necessary 
 software under Ubuntu, simply type::
