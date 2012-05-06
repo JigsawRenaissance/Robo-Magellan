@@ -26,6 +26,14 @@ To test on a live webcam video feed::
     $ ./color_blob.py -v
     ...
 
+To pick a target color from a live webcam video::
+
+    $ ./color_blob.py -p
+    Average target color (R,G,B):  253,114,47
+    ...
+
+
+
 
 **Dependencies**
 
@@ -41,5 +49,5 @@ To test if the installation worked::
     >>> import cv
     >>>                 # <--- No error here indicates success
 
-If the webcam does not work, make sure to use a V4L (Video4Linux) compatible webcam.
+If the webcam does not work, try a V4L (Video4Linux) compatible webcam.
 
