@@ -6,7 +6,7 @@ xmlns:gx="http://www.google.com/kml/ext/2.2">
 <open>1</open>
 <visibility>1</visibility>
 <description><![CDATA[]]></description>
-<name><![CDATA[4/21/2012 6:41 PM Pass 4 Side]]></name>
+<name><![CDATA[5/6/2012 11:38 AM]]></name>
 <atom:author><atom:name><![CDATA[Created by My Tracks on Android.]]></atom:name></atom:author>
 <Style id="track">
 <LineStyle><color>7f0000ff</color><width>4</width></LineStyle>
@@ -51,50 +51,24 @@ xmlns:gx="http://www.google.com/kml/ext/2.2">
 </Schema>
 <Placemark>
 <description><![CDATA[]]></description>
-<name><![CDATA[4/21/2012 6:41 PM Pass 4 Side (Start)]]></name>
+<name><![CDATA[5/6/2012 11:38 AM (Start)]]></name>
 <styleUrl>#start</styleUrl>
 <Point>
-<coordinates>-122.351147,47.620176,27.4000244140625</coordinates>
+<coordinates>-122.351073,47.620652,19.4000244140625</coordinates>
 </Point>
 </Placemark>
 <Placemark id="tour">
 <description><![CDATA[]]></description>
-<name><![CDATA[4/21/2012 6:41 PM Pass 4 Side]]></name>
+<name><![CDATA[5/6/2012 11:38 AM]]></name>
 <styleUrl>#track</styleUrl>
 <gx:MultiTrack>
 <altitudeMode>absolute</altitudeMode>
 <gx:interpolate>1</gx:interpolate>
 <gx:Track>
-<when>2012-04-22T01:41:34.000Z</when>
-<gx:coord>-122.351147 47.620176 27.4000244140625</gx:coord>
-<when>2012-04-22T01:41:34.000Z</when>
-<gx:coord>-122.351147 47.620176 27.4000244140625</gx:coord>
-<when>2012-04-22T01:41:35.000Z</when>
-<gx:coord>-122.351147 47.620176 27.4000244140625</gx:coord>
-<when>2012-04-22T01:41:41.000Z</when>
-<gx:coord>-122.351211 47.620203 26.9000244140625</gx:coord>
-<when>2012-04-22T01:41:46.000Z</when>
-<gx:coord>-122.351272 47.62022 25.29998779296875</gx:coord>
-<when>2012-04-22T01:41:50.000Z</when>
-<gx:coord>-122.351327 47.620251 25.29998779296875</gx:coord>
-<when>2012-04-22T01:41:54.000Z</when>
-<gx:coord>-122.351373 47.62029 25.0999755859375</gx:coord>
-<when>2012-04-22T01:41:58.000Z</when>
-<gx:coord>-122.351419 47.620322 26.20001220703125</gx:coord>
-<when>2012-04-22T01:42:03.000Z</when>
-<gx:coord>-122.351479 47.620284 25.5</gx:coord>
-<when>2012-04-22T01:42:08.000Z</when>
-<gx:coord>-122.351485 47.620234 24.5</gx:coord>
-<when>2012-04-22T01:42:15.000Z</when>
-<gx:coord>-122.351453 47.620186 24.29998779296875</gx:coord>
-<when>2012-04-22T01:42:34.000Z</when>
-<gx:coord>-122.351383 47.620149 21.29998779296875</gx:coord>
-<when>2012-04-22T01:42:40.000Z</when>
-<gx:coord>-122.351323 47.620125 21.5999755859375</gx:coord>
-<when>2012-04-22T01:42:44.000Z</when>
-<gx:coord>-122.351254 47.620139 21.70001220703125</gx:coord>
-<when>2012-04-22T01:42:48.000Z</when>
-<gx:coord>-122.351187 47.620144 22.0</gx:coord>
+<when>2012-05-06T18:38:48.000Z</when>
+<gx:coord>-122.351073 47.620652 19.4000244140625</gx:coord>
+<when>2012-05-06T18:38:48.000Z</when>
+<gx:coord>-122.351073 47.620652 19.4000244140625</gx:coord>
 <ExtendedData>
 <SchemaData schemaUrl="#schema">
 </SchemaData>
@@ -103,11 +77,11 @@ xmlns:gx="http://www.google.com/kml/ext/2.2">
 </gx:MultiTrack>
 </Placemark>
 <Placemark>
-<description><![CDATA[Created by <a href='http://www.google.com/mobile/mytracks'>My Tracks</a> on Android.<p>Total distance: 0.07 km (0.0 mi)<br>Total time: 01:23<br>Moving time: 00:59<br>Average speed: 3.01 km/h (1.9 mi/h)<br>Average moving speed: 4.23 km/h (2.6 mi/h)<br>Max speed: 4.73 km/h (2.9 mi/h)<br>Average pace: 19.96 min/km (32.1 min/mi)<br>Average moving pace: 14.18 min/km (22.8 min/mi)<br>Min pace: 12.69 min/km (20.4 min/mi)<br>Max elevation: 28 m (90 ft)<br>Min elevation: 22 m (73 ft)<br>Elevation gain: 0 m (0 ft)<br>Max grade: 0 %<br>Min grade: 0 %<br>Recorded: 4/21/2012 6:41 PM<br>Activity type: -<br>]]></description>
-<name><![CDATA[4/21/2012 6:41 PM Pass 4 Side (End)]]></name>
+<description><![CDATA[Created by <a href='http://www.google.com/mobile/mytracks'>My Tracks</a> on Android.<p>Total distance: 0.00 km (0.0 mi)<br>Total time: 01:54<br>Moving time: 00:00<br>Average speed: 0.00 km/h (0.0 mi/h)<br>Average moving speed: 0.00 km/h (0.0 mi/h)<br>Max speed: 0.00 km/h (0.0 mi/h)<br>Average pace: 0.00 min/km (0.0 min/mi)<br>Average moving pace: 0.00 min/km (0.0 min/mi)<br>Min pace: 0.00 min/km (0.0 min/mi)<br>Max elevation: 19 m (64 ft)<br>Min elevation: 19 m (64 ft)<br>Elevation gain: 0 m (0 ft)<br>Max grade: 0 %<br>Min grade: 0 %<br>Recorded: 5/6/2012 11:38 AM<br>Activity type: -<br>]]></description>
+<name><![CDATA[5/6/2012 11:38 AM (End)]]></name>
 <styleUrl>#end</styleUrl>
 <Point>
-<coordinates>-122.351187,47.620144,22.0</coordinates>
+<coordinates>-122.351073,47.620652,19.4000244140625</coordinates>
 </Point>
 </Placemark>
 </Document>

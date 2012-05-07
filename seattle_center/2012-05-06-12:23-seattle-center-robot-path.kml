@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"
+xmlns:atom="http://www.w3.org/2005/Atom"
+xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+<open>1</open>
+<visibility>1</visibility>
+<description><![CDATA[]]></description>
+<name><![CDATA[5/6/2012 12:23 PM]]></name>
+<atom:author><atom:name><![CDATA[Created by My Tracks on Android.]]></atom:name></atom:author>
+<Style id="track">
+<LineStyle><color>7f0000ff</color><width>4</width></LineStyle>
+<IconStyle>
+<scale>1.3</scale>
+<Icon><href>http://earth.google.com/images/kml-icons/track-directional/track-0.png</href></Icon>
+</IconStyle>
+</Style>
+<Style id="start"><IconStyle>
+<scale>1.3</scale>
+<Icon><href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href></Icon>
+<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+</IconStyle></Style>
+<Style id="end"><IconStyle>
+<scale>1.3</scale>
+<Icon><href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href></Icon>
+<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+</IconStyle></Style>
+<Style id="statistics"><IconStyle>
+<scale>1.3</scale>
+<Icon><href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href></Icon>
+<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+</IconStyle></Style>
+<Style id="waypoint"><IconStyle>
+<scale>1.3</scale>
+<Icon><href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href></Icon>
+<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+</IconStyle></Style>
+<Schema id="schema">
+<gx:SimpleArrayField name="power" type="int">
+<displayName><![CDATA[Power (W)]]></displayName>
+</gx:SimpleArrayField>
+<gx:SimpleArrayField name="cadence" type="int">
+<displayName><![CDATA[Cadence (rpm)]]></displayName>
+</gx:SimpleArrayField>
+<gx:SimpleArrayField name="heart_rate" type="int">
+<displayName><![CDATA[Heart rate (bpm)]]></displayName>
+</gx:SimpleArrayField>
+<gx:SimpleArrayField name="battery_level" type="int">
+<displayName><![CDATA[Battery level (%)]]></displayName>
+</gx:SimpleArrayField>
+</Schema>
+<Placemark>
+<description><![CDATA[]]></description>
+<name><![CDATA[5/6/2012 12:23 PM (Start)]]></name>
+<styleUrl>#start</styleUrl>
+<Point>
+<coordinates>-122.351071,47.620809,46.5999755859375</coordinates>
+</Point>
+</Placemark>
+<Placemark id="tour">
+<description><![CDATA[]]></description>
+<name><![CDATA[5/6/2012 12:23 PM]]></name>
+<styleUrl>#track</styleUrl>
+<gx:MultiTrack>
+<altitudeMode>absolute</altitudeMode>
+<gx:interpolate>1</gx:interpolate>
+<gx:Track>
+<when>2012-05-06T19:23:38.000Z</when>
+<gx:coord>-122.351071 47.620809 46.5999755859375</gx:coord>
+<when>2012-05-06T19:23:39.000Z</when>
+<gx:coord>-122.351094 47.620788 47.9000244140625</gx:coord>
+<when>2012-05-06T19:23:43.000Z</when>
+<gx:coord>-122.351078 47.620793 48.0</gx:coord>
+<when>2012-05-06T19:23:47.000Z</when>
+<gx:coord>-122.351071 47.62077 45.79998779296875</gx:coord>
+<when>2012-05-06T19:23:48.000Z</when>
+<gx:coord>-122.35106 47.620757 45.70001220703125</gx:coord>
+<when>2012-05-06T19:23:49.000Z</when>
+<gx:coord>-122.351057 47.620739 45.5</gx:coord>
+<when>2012-05-06T19:23:49.000Z</when>
+<gx:coord>-122.351057 47.620739 45.5</gx:coord>
+<when>2012-05-06T19:23:50.000Z</when>
+<gx:coord>-122.351057 47.620739 45.5</gx:coord>
+<when>2012-05-06T19:23:51.000Z</when>
+<gx:coord>-122.351056 47.620716 45.0999755859375</gx:coord>
+<when>2012-05-06T19:23:53.000Z</when>
+<gx:coord>-122.351046 47.620702 44.0999755859375</gx:coord>
+<when>2012-05-06T19:23:54.000Z</when>
+<gx:coord>-122.351046 47.620691 43.9000244140625</gx:coord>
+<when>2012-05-06T19:23:56.000Z</when>
+<gx:coord>-122.351064 47.620677 42.20001220703125</gx:coord>
+<when>2012-05-06T19:24:01.000Z</when>
+<gx:coord>-122.351085 47.620651 39.9000244140625</gx:coord>
+<when>2012-05-06T19:24:03.000Z</when>
+<gx:coord>-122.351089 47.620637 37.9000244140625</gx:coord>
+<when>2012-05-06T19:24:05.000Z</when>
+<gx:coord>-122.351081 47.620629 37.4000244140625</gx:coord>
+<when>2012-05-06T19:24:05.000Z</when>
+<gx:coord>-122.351081 47.620629 37.4000244140625</gx:coord>
+<when>2012-05-06T19:24:43.000Z</when>
+<gx:coord>-122.351081 47.620629 37.4000244140625</gx:coord>
+<when>2012-05-06T19:24:44.000Z</when>
+<gx:coord>-122.350885 47.620721 46.5999755859375</gx:coord>
+<when>2012-05-06T19:24:46.000Z</when>
+<gx:coord>-122.350894 47.620737 45.4000244140625</gx:coord>
+<when>2012-05-06T19:24:48.000Z</when>
+<gx:coord>-122.350912 47.620738 45.0999755859375</gx:coord>
+<when>2012-05-06T19:24:57.000Z</when>
+<gx:coord>-122.350974 47.62072 42.5999755859375</gx:coord>
+<when>2012-05-06T19:25:09.000Z</when>
+<gx:coord>-122.350996 47.620699 41.0</gx:coord>
+<when>2012-05-06T19:25:14.000Z</when>
+<gx:coord>-122.351011 47.62069 40.20001220703125</gx:coord>
+<when>2012-05-06T19:25:16.000Z</when>
+<gx:coord>-122.351027 47.620682 39.79998779296875</gx:coord>
+<when>2012-05-06T19:25:18.000Z</when>
+<gx:coord>-122.351041 47.620676 39.5999755859375</gx:coord>
+<when>2012-05-06T19:26:29.000Z</when>
+<gx:coord>-122.351092 47.620652 38.70001220703125</gx:coord>
+<when>2012-05-06T19:26:32.000Z</when>
+<gx:coord>-122.351083 47.620643 38.5999755859375</gx:coord>
+<when>2012-05-06T19:26:48.000Z</when>
+<gx:coord>-122.351101 47.62064 39.29998779296875</gx:coord>
+<when>2012-05-06T19:26:50.000Z</when>
+<gx:coord>-122.351113 47.620644 39.5999755859375</gx:coord>
+<when>2012-05-06T19:26:52.000Z</when>
+<gx:coord>-122.35113 47.620646 39.70001220703125</gx:coord>
+<when>2012-05-06T19:26:54.000Z</when>
+<gx:coord>-122.351146 47.620645 39.9000244140625</gx:coord>
+<when>2012-05-06T19:26:56.000Z</when>
+<gx:coord>-122.351163 47.620644 40.0</gx:coord>
+<when>2012-05-06T19:26:58.000Z</when>
+<gx:coord>-122.35118 47.620647 40.0999755859375</gx:coord>
+<when>2012-05-06T19:27:00.000Z</when>
+<gx:coord>-122.351195 47.62065 40.20001220703125</gx:coord>
+<when>2012-05-06T19:27:02.000Z</when>
+<gx:coord>-122.351214 47.620654 39.9000244140625</gx:coord>
+<when>2012-05-06T19:27:04.000Z</when>
+<gx:coord>-122.351232 47.620657 39.5999755859375</gx:coord>
+<when>2012-05-06T19:27:06.000Z</when>
+<gx:coord>-122.351252 47.620653 39.20001220703125</gx:coord>
+<when>2012-05-06T19:27:08.000Z</when>
+<gx:coord>-122.351262 47.620646 38.79998779296875</gx:coord>
+<when>2012-05-06T19:27:10.000Z</when>
+<gx:coord>-122.351282 47.620635 38.20001220703125</gx:coord>
+<when>2012-05-06T19:27:12.000Z</when>
+<gx:coord>-122.351301 47.620626 37.9000244140625</gx:coord>
+<when>2012-05-06T19:27:14.000Z</when>
+<gx:coord>-122.351318 47.620617 37.29998779296875</gx:coord>
+<when>2012-05-06T19:27:16.000Z</when>
+<gx:coord>-122.351333 47.620608 36.5</gx:coord>
+<when>2012-05-06T19:27:18.000Z</when>
+<gx:coord>-122.351345 47.620598 36.0</gx:coord>
+<when>2012-05-06T19:27:20.000Z</when>
+<gx:coord>-122.351347 47.620586 35.5</gx:coord>
+<when>2012-05-06T19:27:22.000Z</when>
+<gx:coord>-122.351341 47.620576 35.0999755859375</gx:coord>
+<when>2012-05-06T19:27:24.000Z</when>
+<gx:coord>-122.351332 47.620564 34.79998779296875</gx:coord>
+<when>2012-05-06T19:27:26.000Z</when>
+<gx:coord>-122.35133 47.620554 34.5999755859375</gx:coord>
+<when>2012-05-06T19:27:30.000Z</when>
+<gx:coord>-122.351338 47.620544 33.9000244140625</gx:coord>
+<when>2012-05-06T19:27:32.000Z</when>
+<gx:coord>-122.351342 47.620534 33.20001220703125</gx:coord>
+<when>2012-05-06T19:27:34.000Z</when>
+<gx:coord>-122.351346 47.620522 32.4000244140625</gx:coord>
+<when>2012-05-06T19:27:36.000Z</when>
+<gx:coord>-122.351349 47.620512 31.4000244140625</gx:coord>
+<when>2012-05-06T19:27:38.000Z</when>
+<gx:coord>-122.351352 47.620502 31.20001220703125</gx:coord>
+<when>2012-05-06T19:27:38.000Z</when>
+<gx:coord>-122.351352 47.620502 31.20001220703125</gx:coord>
+<when>2012-05-06T19:27:44.000Z</when>
+<gx:coord>-122.351352 47.620502 31.20001220703125</gx:coord>
+<when>2012-05-06T19:27:45.000Z</when>
+<gx:coord>-122.351408 47.620485 30.5</gx:coord>
+<when>2012-05-06T19:27:47.000Z</when>
+<gx:coord>-122.351418 47.62047 30.0999755859375</gx:coord>
+<when>2012-05-06T19:27:49.000Z</when>
+<gx:coord>-122.351428 47.620454 29.79998779296875</gx:coord>
+<when>2012-05-06T19:27:51.000Z</when>
+<gx:coord>-122.351441 47.620437 29.5</gx:coord>
+<when>2012-05-06T19:27:53.000Z</when>
+<gx:coord>-122.351451 47.620421 29.0</gx:coord>
+<when>2012-05-06T19:27:55.000Z</when>
+<gx:coord>-122.351464 47.620406 29.0</gx:coord>
+<when>2012-05-06T19:27:57.000Z</when>
+<gx:coord>-122.351478 47.620393 29.0999755859375</gx:coord>
+<when>2012-05-06T19:27:59.000Z</when>
+<gx:coord>-122.351488 47.620379 29.0</gx:coord>
+<when>2012-05-06T19:28:01.000Z</when>
+<gx:coord>-122.3515 47.620368 28.79998779296875</gx:coord>
+<when>2012-05-06T19:28:03.000Z</when>
+<gx:coord>-122.351502 47.620354 28.79998779296875</gx:coord>
+<when>2012-05-06T19:28:05.000Z</when>
+<gx:coord>-122.351491 47.620342 28.9000244140625</gx:coord>
+<when>2012-05-06T19:28:07.000Z</when>
+<gx:coord>-122.351472 47.620335 28.79998779296875</gx:coord>
+<when>2012-05-06T19:28:09.000Z</when>
+<gx:coord>-122.351451 47.620329 28.70001220703125</gx:coord>
+<when>2012-05-06T19:28:11.000Z</when>
+<gx:coord>-122.351434 47.620322 28.5999755859375</gx:coord>
+<when>2012-05-06T19:28:13.000Z</when>
+<gx:coord>-122.351418 47.620317 28.29998779296875</gx:coord>
+<when>2012-05-06T19:28:15.000Z</when>
+<gx:coord>-122.351403 47.620311 28.0999755859375</gx:coord>
+<when>2012-05-06T19:28:17.000Z</when>
+<gx:coord>-122.351388 47.620305 28.0</gx:coord>
+<when>2012-05-06T19:28:19.000Z</when>
+<gx:coord>-122.351368 47.6203 28.0</gx:coord>
+<when>2012-05-06T19:28:21.000Z</when>
+<gx:coord>-122.35135 47.620292 27.9000244140625</gx:coord>
+<when>2012-05-06T19:28:23.000Z</when>
+<gx:coord>-122.351335 47.620284 27.9000244140625</gx:coord>
+<when>2012-05-06T19:28:25.000Z</when>
+<gx:coord>-122.351317 47.620279 28.0999755859375</gx:coord>
+<when>2012-05-06T19:28:27.000Z</when>
+<gx:coord>-122.351294 47.620274 28.5999755859375</gx:coord>
+<when>2012-05-06T19:28:29.000Z</when>
+<gx:coord>-122.351276 47.62027 28.9000244140625</gx:coord>
+<when>2012-05-06T19:28:31.000Z</when>
+<gx:coord>-122.351262 47.620266 29.20001220703125</gx:coord>
+<when>2012-05-06T19:28:33.000Z</when>
+<gx:coord>-122.35124 47.620256 29.4000244140625</gx:coord>
+<when>2012-05-06T19:28:35.000Z</when>
+<gx:coord>-122.351226 47.62025 29.70001220703125</gx:coord>
+<when>2012-05-06T19:28:37.000Z</when>
+<gx:coord>-122.351213 47.620239 29.9000244140625</gx:coord>
+<when>2012-05-06T19:28:42.000Z</when>
+<gx:coord>-122.351267 47.620214 28.4000244140625</gx:coord>
+<when>2012-05-06T19:28:44.000Z</when>
+<gx:coord>-122.351215 47.620191 34.9000244140625</gx:coord>
+<when>2012-05-06T19:28:44.000Z</when>
+<gx:coord>-122.351215 47.620191 34.9000244140625</gx:coord>
+<when>2012-05-06T19:28:45.000Z</when>
+<gx:coord>-122.351215 47.620191 34.9000244140625</gx:coord>
+<when>2012-05-06T19:28:46.000Z</when>
+<gx:coord>-122.35111 47.620209 44.0</gx:coord>
+<when>2012-05-06T19:28:47.000Z</when>
+<gx:coord>-122.351113 47.620222 39.5</gx:coord>
+<when>2012-05-06T19:28:50.000Z</when>
+<gx:coord>-122.351102 47.62023 32.0</gx:coord>
+<when>2012-05-06T19:28:52.000Z</when>
+<gx:coord>-122.351091 47.620236 31.5</gx:coord>
+<when>2012-05-06T19:28:54.000Z</when>
+<gx:coord>-122.351081 47.620245 30.79998779296875</gx:coord>
+<when>2012-05-06T19:28:57.000Z</when>
+<gx:coord>-122.351061 47.620248 29.4000244140625</gx:coord>
+<when>2012-05-06T19:28:59.000Z</when>
+<gx:coord>-122.351038 47.620251 29.4000244140625</gx:coord>
+<when>2012-05-06T19:29:01.000Z</when>
+<gx:coord>-122.351024 47.620244 29.0999755859375</gx:coord>
+<when>2012-05-06T19:29:03.000Z</when>
+<gx:coord>-122.351003 47.620236 29.0</gx:coord>
+<when>2012-05-06T19:29:05.000Z</when>
+<gx:coord>-122.350992 47.620223 27.9000244140625</gx:coord>
+<when>2012-05-06T19:29:07.000Z</when>
+<gx:coord>-122.350984 47.620208 25.9000244140625</gx:coord>
+<when>2012-05-06T19:29:09.000Z</when>
+<gx:coord>-122.350984 47.620188 22.9000244140625</gx:coord>
+<when>2012-05-06T19:29:11.000Z</when>
+<gx:coord>-122.350974 47.620177 22.4000244140625</gx:coord>
+<when>2012-05-06T19:29:13.000Z</when>
+<gx:coord>-122.350967 47.620166 22.0999755859375</gx:coord>
+<when>2012-05-06T19:29:15.000Z</when>
+<gx:coord>-122.350956 47.620155 22.29998779296875</gx:coord>
+<when>2012-05-06T19:29:42.000Z</when>
+<gx:coord>-122.351051 47.620126 23.5999755859375</gx:coord>
+<when>2012-05-06T19:29:43.000Z</when>
+<gx:coord>-122.351065 47.620102 22.0</gx:coord>
+<when>2012-05-06T19:29:44.000Z</when>
+<gx:coord>-122.351075 47.620089 19.0</gx:coord>
+<when>2012-05-06T19:29:46.000Z</when>
+<gx:coord>-122.351057 47.620072 17.79998779296875</gx:coord>
+<when>2012-05-06T19:29:47.000Z</when>
+<gx:coord>-122.35104 47.620063 16.70001220703125</gx:coord>
+<ExtendedData>
+<SchemaData schemaUrl="#schema">
+</SchemaData>
+</ExtendedData>
+</gx:Track>
+</gx:MultiTrack>
+</Placemark>
+<Placemark>
+<description><![CDATA[Created by <a href='http://www.google.com/mobile/mytracks'>My Tracks</a> on Android.<p>Total distance: 0.20 km (0.1 mi)<br>Total time: 06:53<br>Moving time: 03:05<br>Average speed: 1.76 km/h (1.1 mi/h)<br>Average moving speed: 3.93 km/h (2.4 mi/h)<br>Max speed: 7.03 km/h (4.4 mi/h)<br>Average pace: 34.11 min/km (54.9 min/mi)<br>Average moving pace: 15.27 min/km (24.6 min/mi)<br>Min pace: 8.54 min/km (13.7 min/mi)<br>Max elevation: 48 m (156 ft)<br>Min elevation: 22 m (71 ft)<br>Elevation gain: 10 m (33 ft)<br>Max grade: 0 %<br>Min grade: 0 %<br>Recorded: 5/6/2012 12:23 PM<br>Activity type: -<br>]]></description>
+<name><![CDATA[5/6/2012 12:23 PM (End)]]></name>
+<styleUrl>#end</styleUrl>
+<Point>
+<coordinates>-122.35104,47.620063,16.70001220703125</coordinates>
+</Point>
+</Placemark>
+</Document>
+</kml>
