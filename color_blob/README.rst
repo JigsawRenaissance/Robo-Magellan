@@ -7,7 +7,7 @@ bounding boxes of any color blobs it detects.  Accuracy of the color blob detect
 is very sensitive to the target color chosen.
 
 
-.. image:: https://github.com/JigsawRenaissance/Robo-Magellan/blob/master/color_blob/images/color-blob-test.png
+.. image:: https://github.com/JigsawRenaissance/Robo-Magellan/raw/master/color_blob/images/color-blob-test.png
 
 
 **Usage**
