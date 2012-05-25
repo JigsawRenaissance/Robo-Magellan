@@ -5,16 +5,14 @@
 #include <SPI.h>      		// Arduino SPI library
 #include <AP_OpticalFlow.h> // ArduCopter OpticalFlow Library
 
-//#include <Wire.h>
+#define BUFFSIZ 42
 
 AP_OpticalFlow_ADNS3080 flowSensor(A3);  // override chip select pin to use A3 if using APM2
 
 void setup() {
   // initialize serial ports:
-  Serial.begin(115200);  // USB Console
+  Serial.begin(19200);  // USB Console
   Serial.flush();
-  
-  //Wire.begin(); // join i2c bus (address optional for master)
   
   init_ofs();
   
@@ -31,7 +29,7 @@ void get_ofs(){
   
   String OFSString = "";
 
-  OFSString.reserve(42); // reserve 42 bytes for OFSString
+  OFSString.reserve(BUFFSIZ); // reserve 42 bytes for OFSString
   
   OFSString = "$PRSO200,";
   
@@ -53,34 +51,22 @@ void get_ofs(){
 
   OFSString += flowSensor.surface_quality,DEC;
   
-  OFSString += "\r\n";
-  
-  Serial.print(OFSString);
-/*
-  char charBuf[42];
-  OFSString.toCharArray(charBuf, 42);
+  OFSString += "*";
+   
+  char charBuf[BUFFSIZ];
+  OFSString.toCharArray(charBuf, BUFFSIZ);
 
-  Wire.beginTransmission(4); // transmit to device Arduino Mega ADK
-  Wire.write(charBuf);              // Send OFSString
-  Wire.endTransmission();    // stop transmitting
-*/
+  char chksum[2];
+  if(checksum(chksum, charBuf)) {
 
-/*
-  Serial.print("x/dx: ");
-  Serial.print(flowSensor.x,DEC);
-  Serial.print("/");
-  Serial.print(flowSensor.dx,DEC);
-  Serial.print("\ty/dy: ");
-  Serial.print(flowSensor.y,DEC);
-  Serial.print("/");
-  Serial.print(flowSensor.dy,DEC);
-  Serial.print("\tsqual:");
-  Serial.print(flowSensor.surface_quality,DEC);
-  Serial.println();
-*/
+    OFSString += chksum[0];
+    OFSString += chksum[1];
   
+    OFSString += "\r\n";
+  
+    Serial.print(OFSString);
+  }
 }
-
 
 void init_ofs(){
   // flowSensor initialization
@@ -91,4 +77,26 @@ void init_ofs(){
   flowSensor.set_field_of_view(AP_OPTICALFLOW_ADNS3080_08_FOV);
   
   flowSensor.clear_motion(); //zero everything
+}
+
+
+bool checksum(char* chksum, char* msg)
+// Assume that message starts with $ and ends with *
+{
+    int sum = 0;
+    if(msg[0] != '$')
+      return false;
+    for (int i = 1; i < BUFFSIZ-5; i++)
+    {
+      if(msg[i] == '*')
+      {
+         int msb = (sum>>4);
+         chksum[0] = msb>9? 'A'+msb-10 : '0'+msb;
+         int lsb = (sum&0x0F);
+         chksum[1] = lsb>9? 'A'+lsb-10 : '0'+lsb;
+         return(true);
+      }
+      sum ^= msg[i];
+    }
+    return(false);
 }

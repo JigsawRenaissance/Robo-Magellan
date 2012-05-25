@@ -121,12 +121,12 @@ void loop() {
   servo[3].write(0); //Pan
 
   servo[3].write(180); //Pan
-  */
   
   servo[0].write(110); //Throttle
 
   servo[1].write(125); //Steering
-
+ */
+ 
 
   //pan();
 }
@@ -168,7 +168,7 @@ void adbEventHandler(Connection * connection, adb_eventType event, uint16_t leng
 }
 
 void serialEvent(){ //Interrupt when the Console says something
-  while (Serial.available()) {
+  while (Serial.available() && !ConsoleComplete) {
     // get the new byte:
     char inChar = (char)Serial.read(); 
     // add it to ConsoleString:
@@ -183,7 +183,7 @@ void serialEvent(){ //Interrupt when the Console says something
 }
 
 void serialEvent1(){ //Interrupt when the LRF says something
-  while (Serial1.available()) {
+  while (Serial1.available() && !LRFComplete) {
     // get the new byte:
     char inChar = (char)Serial1.read();
 
@@ -221,7 +221,7 @@ void serialEvent1(){ //Interrupt when the LRF says something
 }
 
 void serialEvent2(){ //Interrupt when the GPS says something
-  while (Serial2.available()) {
+  while (Serial2.available() && !GPSComplete) {
     // get the new byte:
     char inChar = (char)Serial2.read();
     // add it to GPSString:
@@ -240,7 +240,7 @@ void serialEvent2(){ //Interrupt when the GPS says something
 }
 
 void serialEvent3(){ //Interrupt when the OFS says something
-  while (Serial3.available()) {
+  while (Serial3.available() && !OFSComplete) {
     // get the new byte:
     char inChar = (char)Serial3.read();
     // add it to GPSString:
@@ -255,7 +255,7 @@ void serialEvent3(){ //Interrupt when the OFS says something
 
 
 void init_lrf() {
-  Serial1.begin(115200); // LRF
+  Serial1.begin(19200); // LRF
   LRFString.reserve(13); // reserve 13 bytes for LRFString
 
   Serial.print("Initializing LRF");
@@ -326,7 +326,7 @@ void init_servo() {
 
 
 void init_ofs() {
-  Serial3.begin(115200);  // OFS
+  Serial3.begin(19200);  // OFS
   OFSString.reserve(42);   // reserve 42 bytes for OFSString. This is the longest possibe NMEA sentence
 
 }
