@@ -143,7 +143,10 @@ void loop() {
   read_sonar();
   
   //get_lrf_range();
-   
+  
+  
+  /* Drive in a circle */
+  /*
   servo[3].write(0); //Pan
 
   servo[3].write(180); //Pan
@@ -151,7 +154,7 @@ void loop() {
   servo[0].write(110); //Throttle
 
   servo[1].write(map(200, 0, 255, 0, 180)); //Steering
- 
+ 	*/
 
   //pan();
 }
