@@ -29,6 +29,26 @@ http://www.circuitsathome.com/mcu/google-open-accessory-interface-for-usb-host-s
 #define  SERVO2         12 //Tilt
 #define  SERVO3         13 //Pan
 
+#define MIN_STEERING_LIMIT 86
+#define MAX_STEERING_LIMIT 200
+
+#define SONARBUF 18
+
+#define SONAR1 A0
+#define SONAR2 A1
+#define SONAR3 A2
+#define SONAR4 A3
+#define SONAR5 A4
+
+char sonar[5] = {SONAR1, SONAR2, SONAR3, SONAR4, SONAR5};
+
+uint8_t rcv_buffer[3];
+int rcv_buffer_offset = 0;
+
+int sonar_val[5];
+
+#define SONAR_TRIGGER 6  //pin 6 is the trigger
+
 // Adb connection.
 Connection * connection;
 
@@ -47,13 +67,16 @@ boolean LRFComplete = false;   // This will be set to true once we have a full s
 String OFSString = "";         // a string to hold incoming OFS data
 boolean OFSComplete = false;   // This will be set to true once we have a full string
 
+String SonarString = "";
 
 void setup() {
     
   // initialize serial ports:
   Serial.begin(115200);  // USB Console
   Serial.flush();
-  
+
+  SonarString.reserve(SONARBUF);
+
   init_servo();
   
   init_lrf();
@@ -61,6 +84,8 @@ void setup() {
   init_gps();
   
   init_ofs();
+  
+  init_sonar();
   
   // Initialise the ADB subsystem.  
   ADB::init();
@@ -79,7 +104,7 @@ void loop() {
   ADB::poll();
   
   if (GPSComplete) {
-    Serial.println(GPSString);
+    Serial.print(GPSString);
     char charBuf[82];
     GPSString.toCharArray(charBuf, 82);
     connection->writeString(charBuf);
@@ -104,9 +129,8 @@ void loop() {
    ConsoleIndex=0;
   }
   
-  
   if (OFSComplete) {
-    Serial.println(OFSString);
+    Serial.print(OFSString);
     char charBuf[42];
     OFSString.toCharArray(charBuf, 42);
     connection->writeString(charBuf);
@@ -115,33 +139,41 @@ void loop() {
     OFSComplete = false;
   }
   
+  
+  read_sonar();
+  
   //get_lrf_range();
    
-  /* 
   servo[3].write(0); //Pan
 
   servo[3].write(180); //Pan
   
   servo[0].write(110); //Throttle
 
-  servo[1].write(125); //Steering
- */
+  servo[1].write(map(200, 0, 255, 0, 180)); //Steering
  
 
   //pan();
 }
 
-
 // Event handler for the adb connection. 
 void adbEventHandler(Connection * connection, adb_eventType event, uint16_t length, uint8_t * data)
 {
-  int i;
 
   if (event == ADB_CONNECTION_RECEIVE) {
-    for (i=0; i<length; i++) {
-      //Serial.print(data[i]);
-      Serial.write(data[i]);
-    }
+  	
+  	//Serial.print("length = ");
+  	//Serial.println(length);
+  	for (int i=0; i<length; i++) {
+      //Serial.println(data[i]);
+      //Serial.write(data[i]);
+
+			rcv_buffer[rcv_buffer_offset]=data[i];
+  		rcv_buffer_offset++;
+  		if (rcv_buffer_offset == 3 ) {
+  			processADBMessage();
+  		}
+    }  	
   }
   
   if (event == ADB_CONNECTION_FAILED) {
@@ -352,5 +384,110 @@ void pan(){
   servo[3].write(100); //Pan
 
   delay(1000);
+}
 
+void init_sonar(){
+  pinMode(SONAR_TRIGGER, OUTPUT);
+  digitalWrite(SONAR_TRIGGER, LOW);
+  delay(2000);
+
+  
+  //delay(250); // Wait at least 250ms for the sonars to boot up
+  digitalWrite(SONAR_TRIGGER, HIGH);
+  delayMicroseconds(40); // Wait at least 20us
+  digitalWrite(SONAR_TRIGGER, LOW);
+  pinMode(SONAR_TRIGGER, INPUT); // electrically disconnects the pin
+  delay(100); // Wait 100mS if this is the first time reading the sensor as it calibrates upon the first commanded range cycle after power up
+}
+
+void read_sonar(){
+  for (int i=0; i < 5; i++) {
+    sonar_val[i] = analogRead(sonar[i]);
+    
+    SonarString = "$PRSO30";
+    SonarString += i;
+    SonarString += ",";
+    SonarString += sonar_val[i];
+    SonarString += "*";
+
+    char charBuf[SONARBUF];
+    SonarString.toCharArray(charBuf, SONARBUF);
+
+    char chksum[2];
+    if(checksum(chksum, charBuf)) {
+
+      SonarString += chksum[0];
+      SonarString += chksum[1];
+  
+      SonarString += "\r\n";
+  
+      SonarString.toCharArray(charBuf, SONARBUF);
+      connection->writeString(charBuf);
+  
+      Serial.print(SonarString);
+    }
+  }
+}
+
+
+bool checksum(char* chksum, char* msg)
+// Assume that message starts with $ and ends with *
+{
+    int sum = 0;
+    if(msg[0] != '$')
+      return false;
+    for (int i = 1; i < SONARBUF-5; i++)
+    {
+      if(msg[i] == '*')
+      {
+         int msb = (sum>>4);
+         chksum[0] = msb>9? 'A'+msb-10 : '0'+msb;
+         int lsb = (sum&0x0F);
+         chksum[1] = lsb>9? 'A'+lsb-10 : '0'+lsb;
+         return(true);
+      }
+      sum ^= msg[i];
+    }
+    return(false);
+}
+
+
+
+void processADBMessage(){
+
+  rcv_buffer_offset=0;
+
+	if (rcv_buffer[0] == 0x2) {
+	 switch( rcv_buffer[1] ) {
+	 	case 1:
+	 		if(rcv_buffer[2] < MIN_STEERING_LIMIT) rcv_buffer[2] = MIN_STEERING_LIMIT;
+	     if(rcv_buffer[2] > MAX_STEERING_LIMIT) rcv_buffer[2] = MAX_STEERING_LIMIT;
+	   	Serial.print("Steering to ");
+	   	Serial.println(rcv_buffer[2]);
+	   	servo[1].write(map(rcv_buffer[2], 0, 255, 0, 180)); //Steering
+	    break;
+	 	case 2:
+	   	Serial.print("Throttle to ");
+	   	Serial.println(rcv_buffer[2]);
+	   	servo[0].write(map(rcv_buffer[2], 0, 255, 0, 180)); //Throttle
+	    break;
+	   case 3:
+	   	Serial.print("Turret pan to ");
+	   	Serial.println(rcv_buffer[2]);
+	   	servo[3].write(map(rcv_buffer[2], 0, 255, 0, 180)); //Pan
+	    break;
+	   case 4:
+	   	Serial.print("Turret tilt to ");
+	   	Serial.println(rcv_buffer[2]);
+	   	servo[2].write(map(rcv_buffer[2], 0, 255, 0, 180)); //Tilt
+	    break;
+	   case 5:
+	   	Serial.print("Getting LRF: ");
+	   	Serial.println(rcv_buffer[2]);
+	   	if (rcv_buffer[2] == 0x1) {
+	   		get_lrf_range();
+	   	}
+	    break;
+		}
+	}
 }
