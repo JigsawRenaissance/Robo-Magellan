@@ -43,6 +43,12 @@ BACKLOG = 5
 BUFSIZE = 512
 DEBUG = False
 
+THROTTLE_SERVO = 10
+STEERING_SERVO = 11
+TILT_SERVO     = 12
+PAN_SERVO      = 13
+
+
 def handler(clientsock,addr):
     while True:
         data = clientsock.recv(BUFSIZE)
@@ -77,9 +83,27 @@ def handler(clientsock,addr):
             print 'BLOB: ', area, cx, cy
             if area == 0:
                 return
+
+            # move servo depending on the horizontal
+            # location of the largest bounding box found.
+
+            # dx is the normalized offset from center of screen.
+            # -1 < dx < 1.  dx = 0 implies center.
+            dx = (cx - 640)/640.0  # assumes screen width = 1280
+
+            # estimate an appropriate angle for the pan servo.
+            # assume field of view ~= 60 degrees  (+/- 30 degrees)
+            # this assume:
+            #    servo_angle command   0 = extreme left (-90 deg)
+            #    servo_angle command 255 = extreme right (90 deg)
+            servo_angle = int(dx * 30.0 * 0.7 + 128)  # 0.7 = gain
+
+            msg = '\02%02x%02x' % (PAN_SERVO, servo_angle)
+
+            print 'SERVO CMD: ', servo_angle
+            #clientsock.send(msg)
+            
                     
-        #msg = 'echoed:... ' + data
-        #clientsock.send(msg)
     #clientsock.close()
 
 if __name__ == '__main__':
